@@ -1,0 +1,451 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		69D0F30714A93BB700AC453D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69D0F30614A93BB700AC453D /* Cocoa.framework */; };
+		69D0F31114A93BB700AC453D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 69D0F30F14A93BB700AC453D /* InfoPlist.strings */; };
+		69D0F31314A93BB700AC453D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D0F31214A93BB700AC453D /* main.m */; };
+		69D0F31714A93BB700AC453D /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 69D0F31514A93BB700AC453D /* Credits.rtf */; };
+		69D0F31A14A93BB700AC453D /* ADAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D0F31914A93BB700AC453D /* ADAppDelegate.m */; };
+		69D0F31D14A93BB700AC453D /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69D0F31B14A93BB700AC453D /* MainMenu.xib */; };
+		69D0F32514A93BB700AC453D /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69D0F32414A93BB700AC453D /* SenTestingKit.framework */; };
+		69D0F32614A93BB800AC453D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69D0F30614A93BB700AC453D /* Cocoa.framework */; };
+		69D0F32E14A93BB800AC453D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 69D0F32C14A93BB800AC453D /* InfoPlist.strings */; };
+		69D0F33114A93BB800AC453D /* Agape_DoceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D0F33014A93BB800AC453D /* Agape_DoceTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		69D0F32714A93BB800AC453D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 69D0F2F914A93BB700AC453D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 69D0F30114A93BB700AC453D;
+			remoteInfo = "Agape Doce";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		69D0F30214A93BB700AC453D /* Agape Doce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Agape Doce.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		69D0F30614A93BB700AC453D /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		69D0F30914A93BB700AC453D /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		69D0F30A14A93BB700AC453D /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		69D0F30B14A93BB700AC453D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		69D0F30E14A93BB700AC453D /* Agape Doce-Info.plist */ = {isa = PBXFileReference; path = "Agape Doce-Info.plist"; sourceTree = "<group>"; };
+		69D0F31014A93BB700AC453D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		69D0F31214A93BB700AC453D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		69D0F31414A93BB700AC453D /* Agape Doce-Prefix.pch */ = {isa = PBXFileReference; path = "Agape Doce-Prefix.pch"; sourceTree = "<group>"; };
+		69D0F31614A93BB700AC453D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		69D0F31814A93BB700AC453D /* ADAppDelegate.h */ = {isa = PBXFileReference; path = ADAppDelegate.h; sourceTree = "<group>"; };
+		69D0F31914A93BB700AC453D /* ADAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ADAppDelegate.m; sourceTree = "<group>"; };
+		69D0F31C14A93BB700AC453D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		69D0F32314A93BB700AC453D /* Agape DoceTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Agape DoceTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		69D0F32414A93BB700AC453D /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		69D0F32B14A93BB800AC453D /* Agape DoceTests-Info.plist */ = {isa = PBXFileReference; path = "Agape DoceTests-Info.plist"; sourceTree = "<group>"; };
+		69D0F32D14A93BB800AC453D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		69D0F32F14A93BB800AC453D /* Agape_DoceTests.h */ = {isa = PBXFileReference; path = Agape_DoceTests.h; sourceTree = "<group>"; };
+		69D0F33014A93BB800AC453D /* Agape_DoceTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Agape_DoceTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		69D0F2FF14A93BB700AC453D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				69D0F30714A93BB700AC453D /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		69D0F31F14A93BB700AC453D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				69D0F32514A93BB700AC453D /* SenTestingKit.framework in Frameworks */,
+				69D0F32614A93BB800AC453D /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		69D0F2F714A93BB700AC453D = {
+			isa = PBXGroup;
+			children = (
+				69D0F30C14A93BB700AC453D /* Agape Doce */,
+				69D0F32914A93BB800AC453D /* Agape DoceTests */,
+				69D0F30514A93BB700AC453D /* Frameworks */,
+				69D0F30314A93BB700AC453D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		69D0F30314A93BB700AC453D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				69D0F30214A93BB700AC453D /* Agape Doce.app */,
+				69D0F32314A93BB700AC453D /* Agape DoceTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		69D0F30514A93BB700AC453D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				69D0F30614A93BB700AC453D /* Cocoa.framework */,
+				69D0F32414A93BB700AC453D /* SenTestingKit.framework */,
+				69D0F30814A93BB700AC453D /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		69D0F30814A93BB700AC453D /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				69D0F30914A93BB700AC453D /* AppKit.framework */,
+				69D0F30A14A93BB700AC453D /* CoreData.framework */,
+				69D0F30B14A93BB700AC453D /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		69D0F30C14A93BB700AC453D /* Agape Doce */ = {
+			isa = PBXGroup;
+			children = (
+				69D0F31814A93BB700AC453D /* ADAppDelegate.h */,
+				69D0F31914A93BB700AC453D /* ADAppDelegate.m */,
+				69D0F31B14A93BB700AC453D /* MainMenu.xib */,
+				69D0F30D14A93BB700AC453D /* Supporting Files */,
+			);
+			path = "Agape Doce";
+			sourceTree = "<group>";
+		};
+		69D0F30D14A93BB700AC453D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				69D0F30E14A93BB700AC453D /* Agape Doce-Info.plist */,
+				69D0F30F14A93BB700AC453D /* InfoPlist.strings */,
+				69D0F31214A93BB700AC453D /* main.m */,
+				69D0F31414A93BB700AC453D /* Agape Doce-Prefix.pch */,
+				69D0F31514A93BB700AC453D /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		69D0F32914A93BB800AC453D /* Agape DoceTests */ = {
+			isa = PBXGroup;
+			children = (
+				69D0F32F14A93BB800AC453D /* Agape_DoceTests.h */,
+				69D0F33014A93BB800AC453D /* Agape_DoceTests.m */,
+				69D0F32A14A93BB800AC453D /* Supporting Files */,
+			);
+			path = "Agape DoceTests";
+			sourceTree = "<group>";
+		};
+		69D0F32A14A93BB800AC453D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				69D0F32B14A93BB800AC453D /* Agape DoceTests-Info.plist */,
+				69D0F32C14A93BB800AC453D /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		69D0F30114A93BB700AC453D /* Agape Doce */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 69D0F33414A93BB800AC453D /* Build configuration list for PBXNativeTarget "Agape Doce" */;
+			buildPhases = (
+				69D0F2FE14A93BB700AC453D /* Sources */,
+				69D0F2FF14A93BB700AC453D /* Frameworks */,
+				69D0F30014A93BB700AC453D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Agape Doce";
+			productName = "Agape Doce";
+			productReference = 69D0F30214A93BB700AC453D /* Agape Doce.app */;
+			productType = "com.apple.product-type.application";
+		};
+		69D0F32214A93BB700AC453D /* Agape DoceTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 69D0F33714A93BB800AC453D /* Build configuration list for PBXNativeTarget "Agape DoceTests" */;
+			buildPhases = (
+				69D0F31E14A93BB700AC453D /* Sources */,
+				69D0F31F14A93BB700AC453D /* Frameworks */,
+				69D0F32014A93BB700AC453D /* Resources */,
+				69D0F32114A93BB700AC453D /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				69D0F32814A93BB800AC453D /* PBXTargetDependency */,
+			);
+			name = "Agape DoceTests";
+			productName = "Agape DoceTests";
+			productReference = 69D0F32314A93BB700AC453D /* Agape DoceTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		69D0F2F914A93BB700AC453D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = homeschooled;
+			};
+			buildConfigurationList = 69D0F2FC14A93BB700AC453D /* Build configuration list for PBXProject "Agape Doce" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 69D0F2F714A93BB700AC453D;
+			productRefGroup = 69D0F30314A93BB700AC453D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				69D0F30114A93BB700AC453D /* Agape Doce */,
+				69D0F32214A93BB700AC453D /* Agape DoceTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		69D0F30014A93BB700AC453D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				69D0F31114A93BB700AC453D /* InfoPlist.strings in Resources */,
+				69D0F31714A93BB700AC453D /* Credits.rtf in Resources */,
+				69D0F31D14A93BB700AC453D /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		69D0F32014A93BB700AC453D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				69D0F32E14A93BB800AC453D /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		69D0F32114A93BB700AC453D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		69D0F2FE14A93BB700AC453D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				69D0F31314A93BB700AC453D /* main.m in Sources */,
+				69D0F31A14A93BB700AC453D /* ADAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		69D0F31E14A93BB700AC453D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				69D0F33114A93BB800AC453D /* Agape_DoceTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		69D0F32814A93BB800AC453D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 69D0F30114A93BB700AC453D /* Agape Doce */;
+			targetProxy = 69D0F32714A93BB800AC453D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		69D0F30F14A93BB700AC453D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				69D0F31014A93BB700AC453D /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		69D0F31514A93BB700AC453D /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				69D0F31614A93BB700AC453D /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		69D0F31B14A93BB700AC453D /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				69D0F31C14A93BB700AC453D /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		69D0F32C14A93BB800AC453D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				69D0F32D14A93BB800AC453D /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		69D0F33214A93BB800AC453D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		69D0F33314A93BB800AC453D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		69D0F33514A93BB800AC453D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Agape Doce/Agape Doce-Prefix.pch";
+				INFOPLIST_FILE = "Agape Doce/Agape Doce-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		69D0F33614A93BB800AC453D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Agape Doce/Agape Doce-Prefix.pch";
+				INFOPLIST_FILE = "Agape Doce/Agape Doce-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		69D0F33814A93BB800AC453D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Agape Doce.app/Contents/MacOS/Agape Doce";
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Agape Doce/Agape Doce-Prefix.pch";
+				INFOPLIST_FILE = "Agape DoceTests/Agape DoceTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		69D0F33914A93BB800AC453D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Agape Doce.app/Contents/MacOS/Agape Doce";
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Agape Doce/Agape Doce-Prefix.pch";
+				INFOPLIST_FILE = "Agape DoceTests/Agape DoceTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		69D0F2FC14A93BB700AC453D /* Build configuration list for PBXProject "Agape Doce" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				69D0F33214A93BB800AC453D /* Debug */,
+				69D0F33314A93BB800AC453D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		69D0F33414A93BB800AC453D /* Build configuration list for PBXNativeTarget "Agape Doce" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				69D0F33514A93BB800AC453D /* Debug */,
+				69D0F33614A93BB800AC453D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		69D0F33714A93BB800AC453D /* Build configuration list for PBXNativeTarget "Agape DoceTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				69D0F33814A93BB800AC453D /* Debug */,
+				69D0F33914A93BB800AC453D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 69D0F2F914A93BB700AC453D /* Project object */;
+}
