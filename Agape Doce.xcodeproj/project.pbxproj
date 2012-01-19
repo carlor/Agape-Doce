@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		697859B914C7EA220037F756 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 697859B814C7EA220037F756 /* OpenGL.framework */; };
+		697859C514C7F20C0037F756 /* ADMovieAssembler.m in Sources */ = {isa = PBXBuildFile; fileRef = 697859C414C7F20C0037F756 /* ADMovieAssembler.m */; };
+		697859C814C7F5EA0037F756 /* ADSafeQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 697859C714C7F5EA0037F756 /* ADSafeQueue.m */; };
+		697859CE14C800890037F756 /* ADScreenshotMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 697859CD14C800890037F756 /* ADScreenshotMessage.m */; };
+		69CFC7B614B3EF0600ED8FD4 /* record.png in Resources */ = {isa = PBXBuildFile; fileRef = 69CFC7B514B3EF0600ED8FD4 /* record.png */; };
+		69CFC7B814B3EFBD00ED8FD4 /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69CFC7B714B3EFBD00ED8FD4 /* QTKit.framework */; };
+		69CFC7BB14B3F20600ED8FD4 /* ADRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 69CFC7BA14B3F20600ED8FD4 /* ADRecorder.m */; };
 		69D0F30714A93BB700AC453D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69D0F30614A93BB700AC453D /* Cocoa.framework */; };
 		69D0F31114A93BB700AC453D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 69D0F30F14A93BB700AC453D /* InfoPlist.strings */; };
 		69D0F31314A93BB700AC453D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D0F31214A93BB700AC453D /* main.m */; };
@@ -30,24 +37,35 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		697859B814C7EA220037F756 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		697859C314C7F20C0037F756 /* ADMovieAssembler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADMovieAssembler.h; sourceTree = "<group>"; };
+		697859C414C7F20C0037F756 /* ADMovieAssembler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADMovieAssembler.m; sourceTree = "<group>"; };
+		697859C614C7F5EA0037F756 /* ADSafeQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADSafeQueue.h; sourceTree = "<group>"; };
+		697859C714C7F5EA0037F756 /* ADSafeQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADSafeQueue.m; sourceTree = "<group>"; };
+		697859CC14C800890037F756 /* ADScreenshotMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADScreenshotMessage.h; sourceTree = "<group>"; };
+		697859CD14C800890037F756 /* ADScreenshotMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADScreenshotMessage.m; sourceTree = "<group>"; };
+		69CFC7B514B3EF0600ED8FD4 /* record.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = record.png; sourceTree = "<group>"; };
+		69CFC7B714B3EFBD00ED8FD4 /* QTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QTKit.framework; path = System/Library/Frameworks/QTKit.framework; sourceTree = SDKROOT; };
+		69CFC7B914B3F20600ED8FD4 /* ADRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADRecorder.h; sourceTree = "<group>"; };
+		69CFC7BA14B3F20600ED8FD4 /* ADRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADRecorder.m; sourceTree = "<group>"; };
 		69D0F30214A93BB700AC453D /* Agape Doce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Agape Doce.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		69D0F30614A93BB700AC453D /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		69D0F30914A93BB700AC453D /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		69D0F30A14A93BB700AC453D /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		69D0F30B14A93BB700AC453D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		69D0F30E14A93BB700AC453D /* Agape Doce-Info.plist */ = {isa = PBXFileReference; path = "Agape Doce-Info.plist"; sourceTree = "<group>"; };
+		69D0F30E14A93BB700AC453D /* Agape Doce-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Agape Doce-Info.plist"; sourceTree = "<group>"; };
 		69D0F31014A93BB700AC453D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		69D0F31214A93BB700AC453D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		69D0F31414A93BB700AC453D /* Agape Doce-Prefix.pch */ = {isa = PBXFileReference; path = "Agape Doce-Prefix.pch"; sourceTree = "<group>"; };
+		69D0F31414A93BB700AC453D /* Agape Doce-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Agape Doce-Prefix.pch"; sourceTree = "<group>"; };
 		69D0F31614A93BB700AC453D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
-		69D0F31814A93BB700AC453D /* ADAppDelegate.h */ = {isa = PBXFileReference; path = ADAppDelegate.h; sourceTree = "<group>"; };
+		69D0F31814A93BB700AC453D /* ADAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ADAppDelegate.h; sourceTree = "<group>"; };
 		69D0F31914A93BB700AC453D /* ADAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ADAppDelegate.m; sourceTree = "<group>"; };
 		69D0F31C14A93BB700AC453D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		69D0F32314A93BB700AC453D /* Agape DoceTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Agape DoceTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		69D0F32414A93BB700AC453D /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		69D0F32B14A93BB800AC453D /* Agape DoceTests-Info.plist */ = {isa = PBXFileReference; path = "Agape DoceTests-Info.plist"; sourceTree = "<group>"; };
+		69D0F32B14A93BB800AC453D /* Agape DoceTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Agape DoceTests-Info.plist"; sourceTree = "<group>"; };
 		69D0F32D14A93BB800AC453D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		69D0F32F14A93BB800AC453D /* Agape_DoceTests.h */ = {isa = PBXFileReference; path = Agape_DoceTests.h; sourceTree = "<group>"; };
+		69D0F32F14A93BB800AC453D /* Agape_DoceTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Agape_DoceTests.h; sourceTree = "<group>"; };
 		69D0F33014A93BB800AC453D /* Agape_DoceTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Agape_DoceTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -56,6 +74,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				697859B914C7EA220037F756 /* OpenGL.framework in Frameworks */,
+				69CFC7B814B3EFBD00ED8FD4 /* QTKit.framework in Frameworks */,
 				69D0F30714A93BB700AC453D /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -75,6 +95,8 @@
 		69D0F2F714A93BB700AC453D = {
 			isa = PBXGroup;
 			children = (
+				697859B814C7EA220037F756 /* OpenGL.framework */,
+				69CFC7B714B3EFBD00ED8FD4 /* QTKit.framework */,
 				69D0F30C14A93BB700AC453D /* Agape Doce */,
 				69D0F32914A93BB800AC453D /* Agape DoceTests */,
 				69D0F30514A93BB700AC453D /* Frameworks */,
@@ -116,7 +138,16 @@
 			children = (
 				69D0F31814A93BB700AC453D /* ADAppDelegate.h */,
 				69D0F31914A93BB700AC453D /* ADAppDelegate.m */,
+				69CFC7B914B3F20600ED8FD4 /* ADRecorder.h */,
+				69CFC7BA14B3F20600ED8FD4 /* ADRecorder.m */,
+				697859C314C7F20C0037F756 /* ADMovieAssembler.h */,
+				697859C414C7F20C0037F756 /* ADMovieAssembler.m */,
+				697859C614C7F5EA0037F756 /* ADSafeQueue.h */,
+				697859C714C7F5EA0037F756 /* ADSafeQueue.m */,
+				697859CC14C800890037F756 /* ADScreenshotMessage.h */,
+				697859CD14C800890037F756 /* ADScreenshotMessage.m */,
 				69D0F31B14A93BB700AC453D /* MainMenu.xib */,
+				69CFC7B514B3EF0600ED8FD4 /* record.png */,
 				69D0F30D14A93BB700AC453D /* Supporting Files */,
 			);
 			path = "Agape Doce";
@@ -227,6 +258,7 @@
 				69D0F31114A93BB700AC453D /* InfoPlist.strings in Resources */,
 				69D0F31714A93BB700AC453D /* Credits.rtf in Resources */,
 				69D0F31D14A93BB700AC453D /* MainMenu.xib in Resources */,
+				69CFC7B614B3EF0600ED8FD4 /* record.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,6 +295,10 @@
 			files = (
 				69D0F31314A93BB700AC453D /* main.m in Sources */,
 				69D0F31A14A93BB700AC453D /* ADAppDelegate.m in Sources */,
+				69CFC7BB14B3F20600ED8FD4 /* ADRecorder.m in Sources */,
+				697859C514C7F20C0037F756 /* ADMovieAssembler.m in Sources */,
+				697859C814C7F5EA0037F756 /* ADSafeQueue.m in Sources */,
+				697859CE14C800890037F756 /* ADScreenshotMessage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -436,6 +472,7 @@
 				69D0F33614A93BB800AC453D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		69D0F33714A93BB800AC453D /* Build configuration list for PBXNativeTarget "Agape DoceTests" */ = {
 			isa = XCConfigurationList;
@@ -444,6 +481,7 @@
 				69D0F33914A93BB800AC453D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
