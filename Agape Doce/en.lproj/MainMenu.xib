@@ -392,8 +392,8 @@
 							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView"/>
 							<string key="NSReuseIdentifierKey">_NS:2352</string>
-							<int key="NSpiFlags">16394</int>
-							<double key="NSMaxValue">100</double>
+							<int key="NSpiFlags">16392</int>
+							<double key="NSMaxValue">1</double>
 						</object>
 					</array>
 					<string key="NSFrameSize">{328, 81}</string>

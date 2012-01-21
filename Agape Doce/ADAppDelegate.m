@@ -74,8 +74,9 @@
 
 - (void)updateProgress:(NSUInteger)sofar {
     if (sofar % UPDATE_FRACTION) {
-        [assemblyProgressBar setDoubleValue:100*(sofar / queueLength)];
-        // TODO: make it change
+        double value = (sofar / queueLength);
+        [assemblyProgressBar setDoubleValue:value];
+        [assemblyProgressBar displayIfNeeded];
     }
 }
 
