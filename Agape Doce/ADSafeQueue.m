@@ -1,15 +1,23 @@
 //
 //  ADSafeQueue.m
 //  Agape Doce
-//
-//  Created by Nathan Swan on 1/18/12.
-//  Copyright (c) 2012 homeschooled. All rights reserved.
-//
+// 
+//  Agape Doce is free software: you can redistribute it and/or modify
+//  it under the terms of the GNU General Public License as published by
+//  the Free Software Foundation, either version 3 of the License, or
+//  (at your option) any later version.
+// 
+//  Agape Doce is distributed in the hope that it will be useful,
+//  but WITHOUT ANY WARRANTY; without even the implied warranty of
+//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+//  GNU General Public License for more details.
+// 
+//  You should have received a copy of the GNU General Public License
+//  along with Agape Doce.  If not, see <http://www.gnu.org/licenses/>.
+//  
 
 
 #import "ADSafeQueue.h"
-
-#define MIN_SAFE_SIZE 100
 
 // on the back end, an array whith thread-locking access
 @implementation ADSafeQueue
@@ -24,28 +32,28 @@
 
 - (BOOL)empty {
     BOOL r;
-    AD_LOCK (
+    @synchronized(self) {
          r = ([array count] == 0);
-    )
+    }
     return r;
 }
 
 - (void)add:(id)obj {
-    AD_LOCK (
+    @synchronized(self) {
         [array addObject:obj];
-    )
+    }
 }
 
 - (id)take {
     id r;
-    AD_LOCK (
+    @synchronized(self) {
         if ([array count]) {
             r = [array objectAtIndex:0];
             [array removeObjectAtIndex:0];
         } else {
             r = nil;
         }
-    )
+    }
     return r;
 }
 

@@ -1,25 +1,38 @@
 //
 //  ADAppDelegate.m
 //  Agape Doce
-//
-//  Created by Nathan Swan on 12/26/11.
-//  Copyright (c) 2011 Nathan M. Swan. All rights reserved.
-//
+// 
+//  Agape Doce is free software: you can redistribute it and/or modify
+//  it under the terms of the GNU General Public License as published by
+//  the Free Software Foundation, either version 3 of the License, or
+//  (at your option) any later version.
+// 
+//  Agape Doce is distributed in the hope that it will be useful,
+//  but WITHOUT ANY WARRANTY; without even the implied warranty of
+//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+//  GNU General Public License for more details.
+// 
+//  You should have received a copy of the GNU General Public License
+//  along with Agape Doce.  If not, see <http://www.gnu.org/licenses/>.
+//  
+
 
 #import "ADAppDelegate.h"
 
 @implementation ADAppDelegate
+
+// --- outlets ---
+@synthesize startWindow = _window;
+@synthesize controlWindow;
+
 @synthesize recordButton;
 @synthesize stopButton;
 @synthesize pauseButton;
 
-@synthesize startWindow = _window;
-@synthesize controlWindow;
-
+// it closes because of self
 - (ADAppDelegate *)init {
     self = [super init];
     if (self) {
-        recorder = [[ADRecorder alloc] init];
         closingBecauseOfSelf = NO;
     }
     return self;
@@ -36,6 +49,7 @@
 // --- NSWindowDelegate implementation ---
 - (void)windowWillClose:(NSNotification *)notification
 {
+    // this way, when the window is hidden for recording, it doesn't quit
     if (!closingBecauseOfSelf) {
         [app terminate:self];
     }
@@ -47,6 +61,8 @@
     
     AD_hide([self startWindow]);
     AD_show([self controlWindow]);
+    
+    recorder = [[ADRecorder alloc] init];
     [recorder startRecording];
     
     closingBecauseOfSelf = NO;
@@ -66,10 +82,12 @@
 
 // --- private utilities ---
 
+// shows the window
 void AD_show(NSWindow *win) {
     [win makeKeyAndOrderFront:nil];
 }
 
+// hides the window
 void AD_hide(NSWindow *win) {
     [win orderOut:nil];
 }
