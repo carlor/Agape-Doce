@@ -39,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		691277F114CAA48200907EB1 /* ADUIDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADUIDelegate.h; sourceTree = "<group>"; };
 		697859B814C7EA220037F756 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		697859C314C7F20C0037F756 /* ADMovieAssembler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADMovieAssembler.h; sourceTree = "<group>"; };
 		697859C414C7F20C0037F756 /* ADMovieAssembler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADMovieAssembler.m; sourceTree = "<group>"; };
@@ -144,6 +145,7 @@
 			children = (
 				69D0F31814A93BB700AC453D /* ADAppDelegate.h */,
 				69D0F31914A93BB700AC453D /* ADAppDelegate.m */,
+				691277F114CAA48200907EB1 /* ADUIDelegate.h */,
 				69CFC7B914B3F20600ED8FD4 /* ADRecorder.h */,
 				69CFC7BA14B3F20600ED8FD4 /* ADRecorder.m */,
 				697859C314C7F20C0037F756 /* ADMovieAssembler.h */,

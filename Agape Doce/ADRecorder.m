@@ -25,10 +25,11 @@
 
 @implementation ADRecorder
 
-- (ADRecorder *)init {
+- (ADRecorder *)initWithUI:(ADUIDelegateRef)uidel {
     self = [super init];
     if (self) {
         frameInterval = 1.0 / 30; // 30 frames per second
+        ui = uidel;
     }
     return self;
 }
@@ -54,8 +55,11 @@
 
 - (void)runThread:(id)unusedParam {
     imageQueue = [[ADSafeQueue alloc] init];
-    movasm = [[ADMovieAssembler alloc] initWithQueue:imageQueue 
-                                       frameInterval:frameInterval];
+    movasm = [[ADMovieAssembler alloc]
+              initWithQueue:imageQueue 
+              frameInterval:frameInterval
+              ui:ui
+              ];
     [movasm start];
     
     BOOL shouldContinue = YES;

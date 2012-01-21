@@ -3,10 +3,22 @@
 fledged screen-recording program. As of now, it only records video.
 
 Todo:
-    add audio recording
-    include device settings
-    record a selected area of the screen, or float around it
-    optimize any way possible
+    (immediately)
+        make assembly progress bar update
+    (general)
+        optimize in any way possible
+        refactor
+        improve the UI
+    (future)
+        add audio recording
+        include device settings
+        record a selected area of the screen, or float around it
+        different formats
+        webcam integration
+    (far future)
+        integration with docs, pics
+    (after the end of the world future)
+        Windows version
 
 Authors:
     carlor (nathanmswan at gmail dot com)

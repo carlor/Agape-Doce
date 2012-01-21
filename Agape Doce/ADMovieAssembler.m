@@ -27,11 +27,13 @@
 @implementation ADMovieAssembler
 
 - (ADMovieAssembler*)initWithQueue:(ADSafeQueue*)queue
-                     frameInterval:(NSTimeInterval)interval {
+                     frameInterval:(NSTimeInterval)interval
+                     ui:(ADUIDelegateRef)uidel {
     self = [super init];
     
     imageQueue = queue;
     frameInterval = QTMakeTimeWithTimeInterval(interval);    
+    ui = uidel;
     return self;
 }
 
@@ -50,6 +52,9 @@
 
     amountDone = 0;
     
+    BOOL acceptedProgress = NO;
+    NSUInteger doneSinceAccepting = 0;
+    
     while (1) {
         ADScreenshotMessage *msg = [imageQueue take];
         if (msg == nil) {
@@ -58,15 +63,26 @@
             break;
         } else {
             [self addImageToMovie:[self nsImageFromCGImageRef:[msg image]]];
-            
+            if (acceptedProgress) {
+                [ui updateProgress:++doneSinceAccepting];
+            } else {
+                acceptedProgress = [ui acceptingProgress:imageQueue];
+            }
         }
     }
+    
+    NSString *fname = [NSString stringWithFormat:
+                       @"%s/agapedocebuffer%d.mov",
+                       NSTemporaryDirectory(),
+                       getpid()
+                       ];
     
     NSDictionary *dct = [NSDictionary dictionaryWithObjectsAndKeys:
                          [NSNumber numberWithBool:YES], QTMovieExport,
                          nil];
     
-    [movie writeToFile:@"/Users/nathanmswan/agape_doce_buffer.mov" withAttributes:dct];
+    [movie writeToFile:fname withAttributes:dct];
+    [ui doneAndProducedResult:fname];
 }
 
 - (NSImage *)nsImageFromCGImageRef:(CGImageRef)cgimg {
@@ -82,9 +98,6 @@
                               [NSNumber numberWithLong:codecNormalQuality],
                                     QTAddImageCodecQuality,
                               nil];
-    
-    // produces the image I want
-    [[img TIFFRepresentation] writeToFile:@"/Users/nathanmswan/aaaa.tiff" atomically:YES];
     
     [movie addImage:img forDuration:frameInterval withAttributes:settings];
 }

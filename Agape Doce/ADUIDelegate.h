@@ -1,11 +1,7 @@
 //
-//  ADSafeQueue.h - Agape Doce
-//  A thread-safe queue, right now a synchronized wrapper to an NSMutable array.
+//  ADUIDelegate.h - Agape Doce
+//  An interface between the UI and the backend.
 //  
-//  Eventually I want to make it a doubly-linked list which would, though taking
-//  up more memory, would be cheaper because synchronization would only have to
-//  refer to nodes rather than the entire array.
-// 
 //  Agape Doce is free software: you can redistribute it and/or modify
 //  it under the terms of the GNU General Public License as published by
 //  the Free Software Foundation, either version 3 of the License, or
@@ -22,25 +18,20 @@
 
 #import <Foundation/Foundation.h>
 
-/**
- * A thread-safe queue that locks when in use. Only suitable for ids.
- */
-@interface ADSafeQueue : NSObject
-{
-    NSMutableArray *array;
-}
+#import "ADSafeQueue.h"
 
+@protocol ADUIDelegate <NSObject>
 
-/// Tests whether it is empty.
--(BOOL)empty;
+/// whether the UI should get a progress report, given the message queue
+- (BOOL)acceptingProgress:(ADSafeQueue*)msgqueue;
 
-/// Gets the queue's size.
--(NSUInteger)size;
+/// update the UI progressReport
+- (void)updateProgress:(NSUInteger)sofar;
 
-/// Adds an object to the tail.
--(void)add:(id)obj;
-
-/// Removes an object from the head.
--(id)take;
+/// tell the UI we're done, written movie to temporary file
+- (void)doneAndProducedResult:(NSString*)tempfile;
 
 @end
+
+/// A simpler way to go about it
+typedef id <ADUIDelegate> ADUIDelegateRef;

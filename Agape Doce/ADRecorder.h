@@ -21,6 +21,7 @@
 #import <QTKit/QTKit.h>
 #import <OpenGL/OpenGL.h>
 
+#import "ADUIDelegate.h"
 #import "ADMovieAssembler.h"
 
 /// The recording state is whether it is playing, stopped, or paused
@@ -32,11 +33,15 @@ typedef enum {
 
 @interface ADRecorder : NSObject
 {
+    ADUIDelegateRef ui;
     ADRecordingState recState;
     NSTimeInterval frameInterval; // the length for frames
     ADMovieAssembler *movasm;
     ADSafeQueue *imageQueue;
 }
+
+/// creates an ADRecorder with the ui specified
+-(ADRecorder*)initWithUI:(ADUIDelegateRef)uidel;
 
 /// starts recording
 -(void)startRecording;

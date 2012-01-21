@@ -32,21 +32,27 @@
 
 - (BOOL)empty {
     BOOL r;
-    @synchronized(self) {
+    @synchronized(array) {
          r = ([array count] == 0);
     }
     return r;
 }
 
+- (NSUInteger)size {
+    @synchronized(array) {
+        return [array count];
+    }
+}
+
 - (void)add:(id)obj {
-    @synchronized(self) {
+    @synchronized(array) {
         [array addObject:obj];
     }
 }
 
 - (id)take {
     id r;
-    @synchronized(self) {
+    @synchronized(array) {
         if ([array count]) {
             r = [array objectAtIndex:0];
             [array removeObjectAtIndex:0];

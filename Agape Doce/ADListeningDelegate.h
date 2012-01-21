@@ -1,11 +1,7 @@
 //
-//  ADSafeQueue.h - Agape Doce
-//  A thread-safe queue, right now a synchronized wrapper to an NSMutable array.
+//  ADListeningDelegate.h - Agape Doce
+//  An interface to the UI.
 //  
-//  Eventually I want to make it a doubly-linked list which would, though taking
-//  up more memory, would be cheaper because synchronization would only have to
-//  refer to nodes rather than the entire array.
-// 
 //  Agape Doce is free software: you can redistribute it and/or modify
 //  it under the terms of the GNU General Public License as published by
 //  the Free Software Foundation, either version 3 of the License, or
@@ -22,25 +18,6 @@
 
 #import <Foundation/Foundation.h>
 
-/**
- * A thread-safe queue that locks when in use. Only suitable for ids.
- */
-@interface ADSafeQueue : NSObject
-{
-    NSMutableArray *array;
-}
-
-
-/// Tests whether it is empty.
--(BOOL)empty;
-
-/// Gets the queue's size.
--(NSUInteger)size;
-
-/// Adds an object to the tail.
--(void)add:(id)obj;
-
-/// Removes an object from the head.
--(id)take;
+@protocol ADListeningDelegate <NSObject>
 
 @end

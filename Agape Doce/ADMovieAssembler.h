@@ -19,6 +19,7 @@
 #import <Foundation/Foundation.h>
 #import <QTKit/QTKit.h>
 
+#import "ADUIDelegate.h"
 #import "ADSafeQueue.h"
 
 /**
@@ -31,10 +32,12 @@
     QTTime frameInterval;
     CVImageBufferRef iBuff;
     long long amountDone;
+    ADUIDelegateRef ui;
 }
 
 - (ADMovieAssembler*)initWithQueue:(ADSafeQueue*)queue
-                     frameInterval:(NSTimeInterval)interval;
+                     frameInterval:(NSTimeInterval)interval
+                     ui:(ADUIDelegateRef)ui;
 
 // starts the thread
 - (void)start;

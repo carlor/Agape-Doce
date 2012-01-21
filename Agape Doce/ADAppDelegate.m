@@ -19,11 +19,16 @@
 
 #import "ADAppDelegate.h"
 
+// how often the progress bar should update
+#define UPDATE_FRACTION 2
+
 @implementation ADAppDelegate
 
 // --- outlets ---
 @synthesize startWindow = _window;
 @synthesize controlWindow;
+@synthesize assemblyProgressWindow;
+@synthesize assemblyProgressBar;
 
 @synthesize recordButton;
 @synthesize stopButton;
@@ -55,6 +60,30 @@
     }
 }
 
+// --- ADUIDelegate implementation ---
+- (BOOL)acceptingProgress:(ADSafeQueue*)msgqueue {
+    BOOL r = [recorder recordingState] == ADNotRecordingState;
+    if (r && ![assemblyProgressWindow isVisible]) {
+        queueLength = [msgqueue size];
+        
+        AD_hide(controlWindow);
+        AD_show(assemblyProgressWindow);
+    }
+    return r;
+}
+
+- (void)updateProgress:(NSUInteger)sofar {
+    if (sofar % UPDATE_FRACTION) {
+        [assemblyProgressBar setDoubleValue:100*(sofar / queueLength)];
+        // TODO: make it change
+    }
+}
+
+- (void)doneAndProducedResult:(NSString*)tempFile {
+    AD_hide(assemblyProgressWindow);
+    AD_show([self startWindow]);
+}
+
 // --- actions ---
 - (IBAction)recordButtonPressed:(id)sender {
     closingBecauseOfSelf = YES;
@@ -62,15 +91,13 @@
     AD_hide([self startWindow]);
     AD_show([self controlWindow]);
     
-    recorder = [[ADRecorder alloc] init];
+    recorder = [[ADRecorder alloc] initWithUI:self];
     [recorder startRecording];
     
     closingBecauseOfSelf = NO;
 }
 
 - (IBAction)stopButtonPressed:(id)sender {
-    AD_hide([self controlWindow]);
-    AD_show([self startWindow]);
     [recorder stopRecording];
 }
 
