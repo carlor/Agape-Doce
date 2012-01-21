@@ -81,6 +81,40 @@
 }
 
 - (void)doneAndProducedResult:(NSString*)tempFile {
+    // if you decomment it, the save panel doesn't work
+    //AD_hide(assemblyProgressWindow);
+    NSSavePanel *sp = [NSSavePanel savePanel];
+    [sp setAllowedFileTypes:[NSArray arrayWithObject:@"mov"]];
+    while (1) {
+        NSUInteger result = [sp runModal];
+        if (result == NSOKButton) {
+            NSError *error = nil;
+            // TODO: get this to work.
+            BOOL prob = [[NSFileManager defaultManager] 
+                         moveItemAtURL:[NSURL fileURLWithPath:tempFile]
+                         toURL:[sp URL]
+                         error:&error
+                         ];
+            if (prob) {
+                [[NSAlert alertWithError:error] runModal];
+            } else break;
+        } else {
+            NSString *msg = @"Are you sure you want to cancel?";
+            NSString *inftext = 
+                @"Failing to save will result in the loss of your work.";
+            NSInteger warnrst = [[NSAlert
+                                 alertWithMessageText:msg
+                                 defaultButton:@"Yes" 
+                                 alternateButton:@"No" 
+                                 otherButton:nil 
+                                 informativeTextWithFormat:inftext
+                                 ]
+                                runModal];
+            if (warnrst == NSAlertFirstButtonReturn) {
+                break;
+            }
+        }
+    }
     AD_hide(assemblyProgressWindow);
     AD_show([self startWindow]);
 }

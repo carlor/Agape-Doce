@@ -4,7 +4,8 @@ fledged screen-recording program. As of now, it only records video.
 
 Todo:
     (immediately)
-        make assembly progress bar update
+        get saving to work
+        refine the pause mechanism
     (general)
         optimize in any way possible
         refactor
