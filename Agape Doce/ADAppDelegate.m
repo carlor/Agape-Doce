@@ -105,7 +105,7 @@
                                   informativeTextWithFormat:inftext
                                   ]
                                  runModal];
-            if (warnrst == NSAlertSecondButtonReturn) {
+            if (warnrst == NSAlertDefaultReturn) {
                 break;
             }
         }
@@ -114,6 +114,11 @@
 }
 
 - (IBAction)pauseButtonPressed:(id)sender {
+    if ([recorder recordingState] == ADIsRecordingState) {
+        [stopButton setEnabled:NO];
+    } else {
+        [stopButton setEnabled:YES];
+    }
     [recorder pauseRecording];
 }
 

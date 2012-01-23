@@ -41,6 +41,9 @@
 }
 
 - (void)stopRecording {
+    if (recState == ADPausedRecordingState) {
+        [self pauseRecording];
+    }
     if (recState == ADIsRecordingState) {
         [movieOutput stopRecording];
         [captureSession stopRunning];
