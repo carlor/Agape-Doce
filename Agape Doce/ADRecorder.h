@@ -18,11 +18,7 @@
 //  
 
 #import <Foundation/Foundation.h>
-#import <QTKit/QTKit.h>
-#import <OpenGL/OpenGL.h>
-
-#import "ADUIDelegate.h"
-#import "ADMovieAssembler.h"
+#import <AVFoundation/AVFoundation.h>
 
 /// The recording state is whether it is playing, stopped, or paused
 typedef enum {
@@ -31,17 +27,14 @@ typedef enum {
     ADPausedRecordingState
 } ADRecordingState;
 
-@interface ADRecorder : NSObject
+@interface ADRecorder : NSObject <AVCaptureFileOutputRecordingDelegate>
 {
-    ADUIDelegateRef ui;
     ADRecordingState recState;
-    NSTimeInterval frameInterval; // the length for frames
-    ADMovieAssembler *movasm;
-    ADSafeQueue *imageQueue;
+    
+    AVCaptureSession *captureSession;
+    AVCaptureScreenInput *screenInput;
+    AVCaptureMovieFileOutput *movieOutput;
 }
-
-/// creates an ADRecorder with the ui specified
--(ADRecorder*)initWithUI:(ADUIDelegateRef)uidel;
 
 /// starts recording
 -(void)startRecording;
@@ -49,22 +42,17 @@ typedef enum {
 /// stops recording
 -(void)stopRecording;
 
-/// pauses recording
+/// pauses recording; resumes if already paused
 -(void)pauseRecording;
 
 /// the state of the recorder
 -(ADRecordingState)recordingState;
 
-// the thread that does the screen recording
--(void)runThread:(id)unusedParam;
-
-// decomposition of runThread
--(BOOL)doAction;
--(void)addScreenshot;
-
-
+/// the output file of the most recent recording
+-(NSURL*)outputURL;
 
 @end
 
-
+// --- private utilities ---
+NSURL *AD_tempFile(void);
 

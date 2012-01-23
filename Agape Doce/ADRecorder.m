@@ -17,7 +17,6 @@
 //  
 
 
-#import <OpenGL/OpenGL.h>
 #import <Cocoa/Cocoa.h>
 
 #import "ADRecorder.h"
@@ -25,72 +24,69 @@
 
 @implementation ADRecorder
 
-- (ADRecorder *)initWithUI:(ADUIDelegateRef)uidel {
-    self = [super init];
-    if (self) {
-        frameInterval = 1.0 / 30; // 30 frames per second
-        ui = uidel;
-    }
-    return self;
-}
-
 - (void)startRecording {
-    recState = ADIsRecordingState;
+    captureSession = [[AVCaptureSession alloc] init];
     
-    [NSThread detachNewThreadSelector:@selector(runThread:) 
-                             toTarget:self withObject:nil];
+    screenInput = 
+        [[AVCaptureScreenInput alloc] initWithDisplayID:CGMainDisplayID()];
+    [captureSession addInput:screenInput];
+    
+    movieOutput = [[AVCaptureMovieFileOutput alloc] init];
+    [captureSession addOutput:movieOutput];
+    
+    [captureSession startRunning];
+    [movieOutput startRecordingToOutputFileURL:AD_tempFile() recordingDelegate:self];
+    
+    recState = ADIsRecordingState;
 }
 
 - (void)stopRecording {
-    recState = ADNotRecordingState;
+    if (recState == ADIsRecordingState) {
+        [movieOutput stopRecording];
+        [captureSession stopRunning];
+        recState = ADNotRecordingState;
+    }
 }
 
 - (void)pauseRecording {
-    recState = ADPausedRecordingState;
+    if (recState == ADIsRecordingState) {
+        [movieOutput pauseRecording];
+        recState = ADPausedRecordingState;
+    } else {
+        [movieOutput resumeRecording];
+        recState = ADIsRecordingState;
+    }
+    
 }
 
 - (ADRecordingState)recordingState {
     return recState;
 }
 
-- (void)runThread:(id)unusedParam {
-    imageQueue = [[ADSafeQueue alloc] init];
-    movasm = [[ADMovieAssembler alloc]
-              initWithQueue:imageQueue 
-              frameInterval:frameInterval
-              ui:ui
-              ];
-    [movasm start];
-    
-    BOOL shouldContinue = YES;
-    while (shouldContinue) {
-        shouldContinue = [self doAction];
-        [NSThread sleepForTimeInterval:frameInterval];
-    }
+- (NSURL*)outputURL {
+    return AD_tempFile();
 }
 
-// returns whether should continue
-- (BOOL)doAction {
-    switch (recState) {
-            
-        case ADIsRecordingState:
-            [self addScreenshot];
-            return YES;
-            
-        case ADPausedRecordingState:
-            return YES;
-            
-        case ADNotRecordingState:
-            [imageQueue add:[ADScreenshotMessage terminationMessage]];
-            return NO;
-    }
-}
+// --- AVCaptureFileOutputRecordingDeletate implementation ---
+// note, we don't care, so these are all blank
+- (void)captureOutput:(AVCaptureFileOutput *)captureOutput didStartRecordingToOutputFileAtURL:(NSURL *)fileURL forConnections:(NSArray *)connections {}
+- (void)captureOutput:(AVCaptureFileOutput *)captureOutput willFinishRecordingToOutputFileAtURL:(NSURL *)outputFileURL forConnections:(NSArray *)connections dueToError:(NSError *)error {}
+- (void)captureOutput:(AVCaptureFileOutput *)captureOutput didFinishRecordingToOutputFileAtURL:(NSURL *)outputFileURL fromConnections:(NSArray *)connections error:(NSError *)error {}
+- (void)captureOutput:(AVCaptureFileOutput *)captureOutput didPauseRecordingToOutputFileAtURL:(NSURL *)fileURL fromConnections:(NSArray *)connections {}
+- (void)captureOutput:(AVCaptureFileOutput *)captureOutput didResumeRecordingToOutputFileAtURL:(NSURL *)fileURL fromConnections:(NSArray *)connections {}
 
-- (void)addScreenshot {
-    CGImageRef screenshot = CGDisplayCreateImage(CGMainDisplayID());
-    [imageQueue add:[ADScreenshotMessage messageWith:screenshot]];
-}
 
 @end
 
-
+// --- private utilities ---
+NSURL *AD_tempFile() {
+    return [NSURL 
+            fileURLWithPath:[NSString 
+                             stringWithFormat:
+                                @"%s/agapedocebuffer%d.mov",
+                                NSTemporaryDirectory(),
+                                getpid()
+                             ] 
+            isDirectory:NO
+            ];
+}

@@ -15,9 +15,6 @@
 			<string>NSMenu</string>
 			<string>NSWindowTemplate</string>
 			<string>NSMenuItem</string>
-			<string>NSTextField</string>
-			<string>NSTextFieldCell</string>
-			<string>NSProgressIndicator</string>
 			<string>NSButtonCell</string>
 			<string>NSButton</string>
 			<string>NSCustomObject</string>
@@ -301,8 +298,8 @@
 						</object>
 						<object class="NSButton" id="150358560">
 							<reference key="NSNextResponder" ref="600858693"/>
-							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{76, -8}, {82, 32}}</string>
+							<int key="NSvFlags">266</int>
+							<string key="NSFrame">{{81, -8}, {77, 32}}</string>
 							<reference key="NSSuperview" ref="600858693"/>
 							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView"/>
@@ -315,8 +312,13 @@
 								<reference key="NSSupport" ref="1046610049"/>
 								<string key="NSCellIdentifier">_NS:687</string>
 								<reference key="NSControlView" ref="150358560"/>
-								<int key="NSButtonFlags">-2038284033</int>
-								<int key="NSButtonFlags2">129</int>
+								<int key="NSButtonFlags">-1229569793</int>
+								<int key="NSButtonFlags2">1</int>
+								<object class="NSFont" key="NSAlternateImage">
+									<string key="NSName">LucidaGrande-Bold</string>
+									<double key="NSSize">13</double>
+									<int key="NSfFlags">16</int>
+								</object>
 								<string key="NSAlternateContents"/>
 								<string key="NSKeyEquivalent"/>
 								<int key="NSPeriodicDelay">200</int>
@@ -329,78 +331,6 @@
 					<reference key="NSWindow"/>
 					<reference key="NSNextKeyView" ref="920599581"/>
 					<string key="NSReuseIdentifierKey">_NS:216</string>
-				</object>
-				<string key="NSScreenRect">{{0, 0}, {1280, 778}}</string>
-				<string key="NSMaxSize">{10000000000000, 10000000000000}</string>
-				<bool key="NSWindowIsRestorable">YES</bool>
-			</object>
-			<object class="NSWindowTemplate" id="380717422">
-				<int key="NSWindowStyleMask">6</int>
-				<int key="NSWindowBacking">2</int>
-				<string key="NSWindowRect">{{109, 132}, {328, 81}}</string>
-				<int key="NSWTFlags">611845120</int>
-				<string key="NSWindowTitle">Finishing...</string>
-				<string key="NSWindowClass">NSWindow</string>
-				<nil key="NSViewClass"/>
-				<nil key="NSUserInterfaceItemIdentifier"/>
-				<object class="NSView" key="NSWindowView" id="1005011301">
-					<reference key="NSNextResponder"/>
-					<int key="NSvFlags">256</int>
-					<array class="NSMutableArray" key="NSSubviews">
-						<object class="NSTextField" id="1038694839">
-							<reference key="NSNextResponder" ref="1005011301"/>
-							<int key="NSvFlags">266</int>
-							<string key="NSFrame">{{17, 44}, {294, 17}}</string>
-							<reference key="NSSuperview" ref="1005011301"/>
-							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView" ref="955559793"/>
-							<string key="NSReuseIdentifierKey">_NS:3944</string>
-							<bool key="NSEnabled">YES</bool>
-							<object class="NSTextFieldCell" key="NSCell" id="979754788">
-								<int key="NSCellFlags">68288064</int>
-								<int key="NSCellFlags2">272630784</int>
-								<string key="NSContents">Assembling Movie...</string>
-								<reference key="NSSupport" ref="1046610049"/>
-								<string key="NSCellIdentifier">_NS:3944</string>
-								<reference key="NSControlView" ref="1038694839"/>
-								<object class="NSColor" key="NSBackgroundColor">
-									<int key="NSColorSpace">6</int>
-									<string key="NSCatalogName">System</string>
-									<string key="NSColorName">controlColor</string>
-									<object class="NSColor" key="NSColor">
-										<int key="NSColorSpace">3</int>
-										<bytes key="NSWhite">MC42NjY2NjY2NjY3AA</bytes>
-									</object>
-								</object>
-								<object class="NSColor" key="NSTextColor">
-									<int key="NSColorSpace">6</int>
-									<string key="NSCatalogName">System</string>
-									<string key="NSColorName">controlTextColor</string>
-									<object class="NSColor" key="NSColor">
-										<int key="NSColorSpace">3</int>
-										<bytes key="NSWhite">MAA</bytes>
-									</object>
-								</object>
-							</object>
-						</object>
-						<object class="NSProgressIndicator" id="955559793">
-							<reference key="NSNextResponder" ref="1005011301"/>
-							<int key="NSvFlags">1290</int>
-							<object class="NSPSMatrix" key="NSDrawMatrix"/>
-							<string key="NSFrame">{{18, 16}, {292, 20}}</string>
-							<reference key="NSSuperview" ref="1005011301"/>
-							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView"/>
-							<string key="NSReuseIdentifierKey">_NS:2352</string>
-							<int key="NSpiFlags">16392</int>
-							<double key="NSMaxValue">1</double>
-						</object>
-					</array>
-					<string key="NSFrameSize">{328, 81}</string>
-					<reference key="NSSuperview"/>
-					<reference key="NSWindow"/>
-					<reference key="NSNextKeyView" ref="1038694839"/>
-					<string key="NSReuseIdentifierKey">_NS:224</string>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1280, 778}}</string>
 				<string key="NSMaxSize">{10000000000000, 10000000000000}</string>
@@ -534,22 +464,6 @@
 						<reference key="destination" ref="137074259"/>
 					</object>
 					<int key="connectionID">557</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
-						<string key="label">assemblyProgressWindow</string>
-						<reference key="source" ref="976324537"/>
-						<reference key="destination" ref="380717422"/>
-					</object>
-					<int key="connectionID">563</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
-						<string key="label">assemblyProgressBar</string>
-						<reference key="source" ref="976324537"/>
-						<reference key="destination" ref="955559793"/>
-					</object>
-					<int key="connectionID">564</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -779,41 +693,6 @@
 						<reference key="object" ref="210865004"/>
 						<reference key="parent" ref="150358560"/>
 					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">558</int>
-						<reference key="object" ref="380717422"/>
-						<array class="NSMutableArray" key="children">
-							<reference ref="1005011301"/>
-						</array>
-						<reference key="parent" ref="0"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">559</int>
-						<reference key="object" ref="1005011301"/>
-						<array class="NSMutableArray" key="children">
-							<reference ref="1038694839"/>
-							<reference ref="955559793"/>
-						</array>
-						<reference key="parent" ref="380717422"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">560</int>
-						<reference key="object" ref="1038694839"/>
-						<array class="NSMutableArray" key="children">
-							<reference ref="979754788"/>
-						</array>
-						<reference key="parent" ref="1005011301"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">561</int>
-						<reference key="object" ref="979754788"/>
-						<reference key="parent" ref="1038694839"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">562</int>
-						<reference key="object" ref="955559793"/>
-						<reference key="parent" ref="1005011301"/>
-					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -850,13 +729,7 @@
 				<string key="548.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="549.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="550.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="558.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="NO" key="558.NSWindowTemplate.visibleAtLaunch"/>
-				<string key="559.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="56.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="560.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="561.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="562.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="57.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="58.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 			</dictionary>
@@ -891,8 +764,6 @@
 						</object>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="outlets">
-						<string key="assemblyProgressBar">NSProgressIndicator</string>
-						<string key="assemblyProgressWindow">NSWindow</string>
 						<string key="controlWindow">NSWindow</string>
 						<string key="pauseButton">NSButton</string>
 						<string key="recordButton">NSButton</string>
@@ -900,14 +771,6 @@
 						<string key="stopButton">NSButton</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<object class="IBToOneOutletInfo" key="assemblyProgressBar">
-							<string key="name">assemblyProgressBar</string>
-							<string key="candidateClassName">NSProgressIndicator</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="assemblyProgressWindow">
-							<string key="name">assemblyProgressWindow</string>
-							<string key="candidateClassName">NSWindow</string>
-						</object>
 						<object class="IBToOneOutletInfo" key="controlWindow">
 							<string key="name">controlWindow</string>
 							<string key="candidateClassName">NSWindow</string>

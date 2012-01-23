@@ -7,14 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		697859B914C7EA220037F756 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 697859B814C7EA220037F756 /* OpenGL.framework */; };
-		697859C514C7F20C0037F756 /* ADMovieAssembler.m in Sources */ = {isa = PBXBuildFile; fileRef = 697859C414C7F20C0037F756 /* ADMovieAssembler.m */; };
-		697859C814C7F5EA0037F756 /* ADSafeQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 697859C714C7F5EA0037F756 /* ADSafeQueue.m */; };
-		697859CE14C800890037F756 /* ADScreenshotMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 697859CD14C800890037F756 /* ADScreenshotMessage.m */; };
+		691B804714CD0CA5007B8B03 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 691B804614CD0CA5007B8B03 /* AVFoundation.framework */; };
 		69CFC7B614B3EF0600ED8FD4 /* record.png in Resources */ = {isa = PBXBuildFile; fileRef = 69CFC7B514B3EF0600ED8FD4 /* record.png */; };
-		69CFC7B814B3EFBD00ED8FD4 /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69CFC7B714B3EFBD00ED8FD4 /* QTKit.framework */; };
 		69CFC7BB14B3F20600ED8FD4 /* ADRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 69CFC7BA14B3F20600ED8FD4 /* ADRecorder.m */; };
-		69D0F30714A93BB700AC453D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69D0F30614A93BB700AC453D /* Cocoa.framework */; };
+		69D0F30714A93BB700AC453D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69D0F30614A93BB700AC453D /* Cocoa.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		69D0F31114A93BB700AC453D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 69D0F30F14A93BB700AC453D /* InfoPlist.strings */; };
 		69D0F31314A93BB700AC453D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D0F31214A93BB700AC453D /* main.m */; };
 		69D0F31714A93BB700AC453D /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 69D0F31514A93BB700AC453D /* Credits.rtf */; };
@@ -39,14 +35,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		691277F114CAA48200907EB1 /* ADUIDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADUIDelegate.h; sourceTree = "<group>"; };
+		691B804614CD0CA5007B8B03 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		697859B814C7EA220037F756 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
-		697859C314C7F20C0037F756 /* ADMovieAssembler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADMovieAssembler.h; sourceTree = "<group>"; };
-		697859C414C7F20C0037F756 /* ADMovieAssembler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADMovieAssembler.m; sourceTree = "<group>"; };
-		697859C614C7F5EA0037F756 /* ADSafeQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADSafeQueue.h; sourceTree = "<group>"; };
-		697859C714C7F5EA0037F756 /* ADSafeQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADSafeQueue.m; sourceTree = "<group>"; };
-		697859CC14C800890037F756 /* ADScreenshotMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADScreenshotMessage.h; sourceTree = "<group>"; };
-		697859CD14C800890037F756 /* ADScreenshotMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADScreenshotMessage.m; sourceTree = "<group>"; };
 		69CFC7B514B3EF0600ED8FD4 /* record.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = record.png; sourceTree = "<group>"; };
 		69CFC7B714B3EFBD00ED8FD4 /* QTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QTKit.framework; path = System/Library/Frameworks/QTKit.framework; sourceTree = SDKROOT; };
 		69CFC7B914B3F20600ED8FD4 /* ADRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADRecorder.h; sourceTree = "<group>"; };
@@ -79,8 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				697859B914C7EA220037F756 /* OpenGL.framework in Frameworks */,
-				69CFC7B814B3EFBD00ED8FD4 /* QTKit.framework in Frameworks */,
+				691B804714CD0CA5007B8B03 /* AVFoundation.framework in Frameworks */,
 				69D0F30714A93BB700AC453D /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -100,6 +89,7 @@
 		69D0F2F714A93BB700AC453D = {
 			isa = PBXGroup;
 			children = (
+				691B804614CD0CA5007B8B03 /* AVFoundation.framework */,
 				69D4654214CA48130001313C /* README */,
 				69D4654414CA49850001313C /* LICENSE */,
 				697859B814C7EA220037F756 /* OpenGL.framework */,
@@ -145,15 +135,8 @@
 			children = (
 				69D0F31814A93BB700AC453D /* ADAppDelegate.h */,
 				69D0F31914A93BB700AC453D /* ADAppDelegate.m */,
-				691277F114CAA48200907EB1 /* ADUIDelegate.h */,
 				69CFC7B914B3F20600ED8FD4 /* ADRecorder.h */,
 				69CFC7BA14B3F20600ED8FD4 /* ADRecorder.m */,
-				697859C314C7F20C0037F756 /* ADMovieAssembler.h */,
-				697859C414C7F20C0037F756 /* ADMovieAssembler.m */,
-				697859C614C7F5EA0037F756 /* ADSafeQueue.h */,
-				697859C714C7F5EA0037F756 /* ADSafeQueue.m */,
-				697859CC14C800890037F756 /* ADScreenshotMessage.h */,
-				697859CD14C800890037F756 /* ADScreenshotMessage.m */,
 				69D0F31B14A93BB700AC453D /* MainMenu.xib */,
 				69CFC7B514B3EF0600ED8FD4 /* record.png */,
 				69D0F30D14A93BB700AC453D /* Supporting Files */,
@@ -306,9 +289,6 @@
 				69D0F31314A93BB700AC453D /* main.m in Sources */,
 				69D0F31A14A93BB700AC453D /* ADAppDelegate.m in Sources */,
 				69CFC7BB14B3F20600ED8FD4 /* ADRecorder.m in Sources */,
-				697859C514C7F20C0037F756 /* ADMovieAssembler.m in Sources */,
-				697859C814C7F5EA0037F756 /* ADSafeQueue.m in Sources */,
-				697859CE14C800890037F756 /* ADScreenshotMessage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

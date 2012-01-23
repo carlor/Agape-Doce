@@ -18,13 +18,11 @@
 
 #import <Cocoa/Cocoa.h>
 
-#import "ADUIDelegate.h"
 #import "ADRecorder.h"
 
 
 @interface ADAppDelegate : NSObject <NSApplicationDelegate, 
-                                     NSWindowDelegate, 
-                                     ADUIDelegate>
+                                     NSWindowDelegate>
 {
     NSApplication *app;
     ADRecorder *recorder;
@@ -42,8 +40,6 @@
 // --- outlets ---
 @property (assign) IBOutlet NSWindow *startWindow;
 @property (unsafe_unretained) IBOutlet NSWindow *controlWindow;
-@property (unsafe_unretained) IBOutlet NSWindow *assemblyProgressWindow;
-@property (weak) IBOutlet NSProgressIndicator *assemblyProgressBar;
 
 @property (weak) IBOutlet NSButton *recordButton;
 @property (weak) IBOutlet NSButton *stopButton;

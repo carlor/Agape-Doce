@@ -27,8 +27,6 @@
 // --- outlets ---
 @synthesize startWindow = _window;
 @synthesize controlWindow;
-@synthesize assemblyProgressWindow;
-@synthesize assemblyProgressBar;
 
 @synthesize recordButton;
 @synthesize stopButton;
@@ -60,65 +58,6 @@
     }
 }
 
-// --- ADUIDelegate implementation ---
-- (BOOL)acceptingProgress:(ADSafeQueue*)msgqueue {
-    BOOL r = [recorder recordingState] == ADNotRecordingState;
-    if (r && ![assemblyProgressWindow isVisible]) {
-        queueLength = [msgqueue size];
-        
-        AD_hide(controlWindow);
-        AD_show(assemblyProgressWindow);
-    }
-    return r;
-}
-
-- (void)updateProgress:(NSUInteger)sofar {
-    if (sofar % UPDATE_FRACTION) {
-        double value = (sofar / queueLength);
-        [assemblyProgressBar setDoubleValue:value];
-        [assemblyProgressBar displayIfNeeded];
-    }
-}
-
-- (void)doneAndProducedResult:(NSString*)tempFile {
-    // if you decomment it, the save panel doesn't work
-    //AD_hide(assemblyProgressWindow);
-    NSSavePanel *sp = [NSSavePanel savePanel];
-    [sp setAllowedFileTypes:[NSArray arrayWithObject:@"mov"]];
-    while (1) {
-        NSUInteger result = [sp runModal];
-        if (result == NSOKButton) {
-            NSError *error = nil;
-            // TODO: get this to work.
-            BOOL prob = [[NSFileManager defaultManager] 
-                         moveItemAtURL:[NSURL fileURLWithPath:tempFile]
-                         toURL:[sp URL]
-                         error:&error
-                         ];
-            if (prob) {
-                [[NSAlert alertWithError:error] runModal];
-            } else break;
-        } else {
-            NSString *msg = @"Are you sure you want to cancel?";
-            NSString *inftext = 
-                @"Failing to save will result in the loss of your work.";
-            NSInteger warnrst = [[NSAlert
-                                 alertWithMessageText:msg
-                                 defaultButton:@"Yes" 
-                                 alternateButton:@"No" 
-                                 otherButton:nil 
-                                 informativeTextWithFormat:inftext
-                                 ]
-                                runModal];
-            if (warnrst == NSAlertFirstButtonReturn) {
-                break;
-            }
-        }
-    }
-    AD_hide(assemblyProgressWindow);
-    AD_show([self startWindow]);
-}
-
 // --- actions ---
 - (IBAction)recordButtonPressed:(id)sender {
     closingBecauseOfSelf = YES;
@@ -126,7 +65,7 @@
     AD_hide([self startWindow]);
     AD_show([self controlWindow]);
     
-    recorder = [[ADRecorder alloc] initWithUI:self];
+    recorder = [[ADRecorder alloc] init];
     [recorder startRecording];
     
     closingBecauseOfSelf = NO;
@@ -134,6 +73,44 @@
 
 - (IBAction)stopButtonPressed:(id)sender {
     [recorder stopRecording];
+    
+    AD_hide(controlWindow);
+    AD_show([self startWindow]);
+    
+    NSSavePanel *sp = [NSSavePanel savePanel];
+    [sp setAllowedFileTypes:[NSArray arrayWithObject:@"mov"]];
+    
+    while (1) {
+        NSUInteger result = [sp runModal];
+        if (result == NSOKButton) {
+            NSError *error = nil;
+            
+            BOOL good = [[NSFileManager defaultManager] 
+                         moveItemAtURL:[recorder outputURL]
+                         toURL:[sp URL]
+                         error:&error
+                         ];
+            if (!good) {
+                [[NSAlert alertWithError:error] runModal];
+            } else break;
+        } else {
+            NSString *msg = @"Are you sure you want to cancel?";
+            NSString *inftext = 
+            @"Failing to save will result in the loss of your work.";
+            NSInteger warnrst = [[NSAlert
+                                  alertWithMessageText:msg
+                                  defaultButton:@"Yes" 
+                                  alternateButton:@"No" 
+                                  otherButton:nil 
+                                  informativeTextWithFormat:inftext
+                                  ]
+                                 runModal];
+            if (warnrst == NSAlertSecondButtonReturn) {
+                break;
+            }
+        }
+    }
+    
 }
 
 - (IBAction)pauseButtonPressed:(id)sender {
