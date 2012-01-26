@@ -62,11 +62,21 @@
 - (IBAction)recordButtonPressed:(id)sender {
     closingBecauseOfSelf = YES;
     
-    AD_hide([self startWindow]);
-    AD_show([self controlWindow]);
-    
     recorder = [[ADRecorder alloc] init];
-    [recorder startRecording];
+    
+    @try {
+        [recorder startRecording];
+    }
+    @catch (NSError *err) {
+        NSAlert *al = [NSAlert alertWithError:err];
+        [al runModal];
+        recorder = nil;
+    }
+    
+    if (recorder) {
+        AD_hide([self startWindow]);
+        AD_show([self controlWindow]);
+    }
     
     closingBecauseOfSelf = NO;
 }

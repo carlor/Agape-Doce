@@ -32,7 +32,10 @@ typedef enum {
     ADRecordingState recState;
     
     AVCaptureSession *captureSession;
+    
     AVCaptureScreenInput *screenInput;
+    AVCaptureDeviceInput *audio;
+    
     AVCaptureMovieFileOutput *movieOutput;
 }
 

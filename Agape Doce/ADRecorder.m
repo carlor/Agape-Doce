@@ -20,16 +20,30 @@
 #import <Cocoa/Cocoa.h>
 
 #import "ADRecorder.h"
-#import "ADScreenshotMessage.h"
 
 @implementation ADRecorder
 
 - (void)startRecording {
+    NSError *error = nil;
+    
     captureSession = [[AVCaptureSession alloc] init];
     
     screenInput = 
         [[AVCaptureScreenInput alloc] initWithDisplayID:CGMainDisplayID()];
     [captureSession addInput:screenInput];
+    
+    audio = [AVCaptureDeviceInput
+             deviceInputWithDevice:[AVCaptureDevice 
+                                    defaultDeviceWithMediaType:AVMediaTypeAudio
+                                    ] 
+             error:&error
+             ];
+    
+    if (error) {
+        @throw error;
+    }
+
+    [captureSession addInput:audio];
     
     movieOutput = [[AVCaptureMovieFileOutput alloc] init];
     [captureSession addOutput:movieOutput];
