@@ -8,7 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		691B804714CD0CA5007B8B03 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 691B804614CD0CA5007B8B03 /* AVFoundation.framework */; };
-		69CFC7B614B3EF0600ED8FD4 /* record.png in Resources */ = {isa = PBXBuildFile; fileRef = 69CFC7B514B3EF0600ED8FD4 /* record.png */; };
+		699321DE14D51D070058B013 /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 699321DB14D51D070058B013 /* pause.png */; };
+		699321DF14D51D070058B013 /* record.png in Resources */ = {isa = PBXBuildFile; fileRef = 699321DC14D51D070058B013 /* record.png */; };
+		699321E014D51D070058B013 /* stop.png in Resources */ = {isa = PBXBuildFile; fileRef = 699321DD14D51D070058B013 /* stop.png */; };
 		69CFC7BB14B3F20600ED8FD4 /* ADRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 69CFC7BA14B3F20600ED8FD4 /* ADRecorder.m */; };
 		69D0F30714A93BB700AC453D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69D0F30614A93BB700AC453D /* Cocoa.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		69D0F31114A93BB700AC453D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 69D0F30F14A93BB700AC453D /* InfoPlist.strings */; };
@@ -37,7 +39,9 @@
 /* Begin PBXFileReference section */
 		691B804614CD0CA5007B8B03 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		697859B814C7EA220037F756 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
-		69CFC7B514B3EF0600ED8FD4 /* record.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = record.png; sourceTree = "<group>"; };
+		699321DB14D51D070058B013 /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pause.png; path = "Agape Doce/res/pause.png"; sourceTree = "<group>"; };
+		699321DC14D51D070058B013 /* record.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = record.png; path = "Agape Doce/res/record.png"; sourceTree = "<group>"; };
+		699321DD14D51D070058B013 /* stop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = stop.png; path = "Agape Doce/res/stop.png"; sourceTree = "<group>"; };
 		69CFC7B714B3EFBD00ED8FD4 /* QTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QTKit.framework; path = System/Library/Frameworks/QTKit.framework; sourceTree = SDKROOT; };
 		69CFC7B914B3F20600ED8FD4 /* ADRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADRecorder.h; sourceTree = "<group>"; };
 		69CFC7BA14B3F20600ED8FD4 /* ADRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADRecorder.m; sourceTree = "<group>"; };
@@ -86,6 +90,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		699321E114D51D1D0058B013 /* res */ = {
+			isa = PBXGroup;
+			children = (
+				699321DB14D51D070058B013 /* pause.png */,
+				699321DC14D51D070058B013 /* record.png */,
+				699321DD14D51D070058B013 /* stop.png */,
+			);
+			name = res;
+			path = ..;
+			sourceTree = "<group>";
+		};
 		69D0F2F714A93BB700AC453D = {
 			isa = PBXGroup;
 			children = (
@@ -138,7 +153,6 @@
 				69CFC7B914B3F20600ED8FD4 /* ADRecorder.h */,
 				69CFC7BA14B3F20600ED8FD4 /* ADRecorder.m */,
 				69D0F31B14A93BB700AC453D /* MainMenu.xib */,
-				69CFC7B514B3EF0600ED8FD4 /* record.png */,
 				69D0F30D14A93BB700AC453D /* Supporting Files */,
 			);
 			path = "Agape Doce";
@@ -147,6 +161,7 @@
 		69D0F30D14A93BB700AC453D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				699321E114D51D1D0058B013 /* res */,
 				69D0F30E14A93BB700AC453D /* Agape Doce-Info.plist */,
 				69D0F30F14A93BB700AC453D /* InfoPlist.strings */,
 				69D0F31214A93BB700AC453D /* main.m */,
@@ -249,9 +264,11 @@
 				69D0F31114A93BB700AC453D /* InfoPlist.strings in Resources */,
 				69D0F31714A93BB700AC453D /* Credits.rtf in Resources */,
 				69D0F31D14A93BB700AC453D /* MainMenu.xib in Resources */,
-				69CFC7B614B3EF0600ED8FD4 /* record.png in Resources */,
 				69D4654514CA4E7C0001313C /* README in Resources */,
 				69D4654614CA4E7F0001313C /* LICENSE in Resources */,
+				699321DE14D51D070058B013 /* pause.png in Resources */,
+				699321DF14D51D070058B013 /* record.png in Resources */,
+				699321E014D51D070058B013 /* stop.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
