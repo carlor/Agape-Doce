@@ -23,27 +23,103 @@
 
 @implementation ADRecorder
 
+static NSArray *micarray = nil;
+static NSArray *micnames = nil;
+
++(NSArray *)micnames {
+    if (micarray == nil) {
+        NSMutableArray *mmicarray = [[NSMutableArray alloc] init];
+        NSMutableArray *mmicnames = [[NSMutableArray alloc] init];
+        AVCaptureDevice *dfault = [AVCaptureDevice
+                                   defaultDeviceWithMediaType:AVMediaTypeAudio
+                                   ];
+        [mmicarray addObject:dfault];
+        
+        [mmicnames addObject:@"None"];
+        [mmicnames addObject:[dfault localizedName]];
+        
+        NSArray *dvs = [AVCaptureDevice devices];
+        NSUInteger len = [dvs count];
+        for (NSUInteger i=0; i<len; i++) {
+            AVCaptureDevice *d = [dvs objectAtIndex:i];
+            if (d != dfault) {
+                [mmicarray addObject:d];
+                [mmicnames addObject:[d localizedName]];
+            }
+        }
+        micarray = mmicarray;
+        micnames = mmicnames;
+    }
+    return micnames;
+}
+
+static NSArray *screenarray = nil;
+static NSArray *screennames = nil;
+
++(NSArray *)screennames {
+    if (screenarray == nil) {
+        NSMutableArray *mscreenarray = [[NSMutableArray alloc] init];
+        NSMutableArray *mscreennames = [[NSMutableArray alloc] init];
+        
+        CGDirectDisplayID dfault = CGMainDisplayID();
+        [mscreenarray addObject:[NSNumber numberWithUnsignedInt:dfault]];
+        [mscreennames addObject:AD_nameOf(dfault)];
+        
+        // find number of displays
+        uint32_t ndisplays;
+        CGGetActiveDisplayList(0, NULL, &ndisplays);
+        
+        CGDirectDisplayID *displayp = 
+            malloc(ndisplays * sizeof(CGDirectDisplayID) );
+        CGDirectDisplayID *olddisplayp = displayp;
+        if (displayp) {
+            CGGetActiveDisplayList(ndisplays, displayp, &ndisplays);
+            
+            for (uint32_t i=0; i<ndisplays; i++, displayp++) {
+                if (*displayp != dfault) {
+                    [mscreenarray 
+                     addObject:[NSNumber numberWithUnsignedInt:*displayp]
+                     ];
+                    [mscreennames addObject:AD_nameOf(*displayp)];
+                }
+            }
+            
+            free(olddisplayp);
+        } // else failure, it will only show main screen
+        
+        screenarray = mscreenarray;
+        screennames = mscreennames;
+    }
+    return screennames;
+}
+
+@synthesize micID;
+@synthesize screenID;
+
+
 - (void)startRecording {
     NSError *error = nil;
     
     captureSession = [[AVCaptureSession alloc] init];
     
-    screenInput = 
-        [[AVCaptureScreenInput alloc] initWithDisplayID:CGMainDisplayID()];
+    screenInput = [[AVCaptureScreenInput alloc] 
+                   initWithDisplayID:[[screenarray 
+                                       objectAtIndex:[self screenID]
+                                      ] unsignedIntValue]
+                   ];
     [captureSession addInput:screenInput];
     
-    audio = [AVCaptureDeviceInput
-             deviceInputWithDevice:[AVCaptureDevice 
-                                    defaultDeviceWithMediaType:AVMediaTypeAudio
-                                    ] 
-             error:&error
-             ];
-    
-    if (error) {
-        @throw error;
+    if (micID) {
+        audio = [AVCaptureDeviceInput
+                 deviceInputWithDevice:[micarray objectAtIndex:[self micID]-1]
+                 error:&error
+                 ];
+        
+        if (error) {
+            @throw error;
+        }
+        [captureSession addInput:audio];
     }
-
-    [captureSession addInput:audio];
     
     movieOutput = [[AVCaptureMovieFileOutput alloc] init];
     [captureSession addOutput:movieOutput];
@@ -107,3 +183,15 @@ NSURL *AD_tempFile() {
             isDirectory:NO
             ];
 }
+
+static int nsupscreens = 0;
+NSString *AD_nameOf(CGDirectDisplayID did) {
+    if (did == CGMainDisplayID()) {
+        return @"Main Screen";
+    } else {
+        return [NSString stringWithFormat:@"Supplementary Screen %d", 
+                                          ++nsupscreens
+                ];
+    }
+}
+

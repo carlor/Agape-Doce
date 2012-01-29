@@ -38,10 +38,15 @@
 - (IBAction)pauseButtonPressed:(id)sender;
 
 // --- outlets ---
+// -- start window --
 @property (assign) IBOutlet NSWindow *startWindow;
-@property (unsafe_unretained) IBOutlet NSWindow *controlWindow;
-
 @property (weak) IBOutlet NSButton *recordButton;
+@property (weak) IBOutlet NSPopUpButton *micMenu;
+@property (weak) IBOutlet NSPopUpButton *screenMenu;
+
+
+// -- control window --
+@property (unsafe_unretained) IBOutlet NSWindow *controlWindow;
 @property (weak) IBOutlet NSButton *stopButton;
 @property (weak) IBOutlet NSButton *pauseButton;
 

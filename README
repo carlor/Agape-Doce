@@ -8,11 +8,13 @@ Todo:
         refactor
         improve the UI
     (future)
-        include device settings
         record a selected area of the screen, or float around it
         different formats
         webcam integration
         allow it to replace file
+        make the screen id casting portable
+        internationalization
+        name of screen
     (far future)
         integration with docs, pics
     (after the end of the world future)

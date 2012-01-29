@@ -29,6 +29,8 @@
 @synthesize controlWindow;
 
 @synthesize recordButton;
+@synthesize micMenu;
+@synthesize screenMenu;
 @synthesize stopButton;
 @synthesize pauseButton;
 
@@ -44,6 +46,12 @@
 // --- NSApplicationDelegate implementation ---
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
+    [micMenu removeAllItems];
+    [micMenu addItemsWithTitles:[ADRecorder micnames]];
+    
+    [screenMenu removeAllItems];
+    [screenMenu addItemsWithTitles:[ADRecorder screennames]];
+    
     app = [aNotification object];
     [[self startWindow] setDelegate:self];
 }
@@ -63,6 +71,8 @@
     closingBecauseOfSelf = YES;
     
     recorder = [[ADRecorder alloc] init];
+    [recorder setMicID:[micMenu indexOfSelectedItem]];
+    [recorder setScreenID:[screenMenu indexOfSelectedItem]];
     
     @try {
         [recorder startRecording];

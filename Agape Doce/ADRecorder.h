@@ -39,6 +39,16 @@ typedef enum {
     AVCaptureMovieFileOutput *movieOutput;
 }
 
+/// gets all the mics (including None) into a list of strings
++(NSArray*)micnames;
+
+/// gets all the screen names
++(NSArray*)screennames;
+
+/// ids
+@property NSInteger micID;
+@property NSInteger screenID;
+
 /// starts recording
 -(void)startRecording;
 
@@ -58,4 +68,5 @@ typedef enum {
 
 // --- private utilities ---
 NSURL *AD_tempFile(void);
+NSString *AD_nameOf(CGDirectDisplayID display);
 
