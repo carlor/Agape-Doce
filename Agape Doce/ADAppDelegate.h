@@ -1,6 +1,6 @@
 //
-//  ADAppDelegate.h - Agape Doce
-//  This AppDelegate has all the outlets/actions and basically manages the UI.
+//  ADAppDelegate.h
+//  Agape Doce
 //  
 //  Agape Doce is free software: you can redistribute it and/or modify
 //  it under the terms of the GNU General Public License as published by
@@ -27,8 +27,6 @@
     NSApplication *app;
     ADRecorder *recorder;
     BOOL closingBecauseOfSelf;
-    // double so we don't have to worry about explicit casting
-    double queueLength;
 }
 
 

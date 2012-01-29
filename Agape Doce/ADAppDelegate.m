@@ -19,9 +19,6 @@
 
 #import "ADAppDelegate.h"
 
-// how often the progress bar should update
-#define UPDATE_FRACTION 2
-
 @implementation ADAppDelegate
 
 // --- outlets ---
@@ -37,9 +34,7 @@
 // it closes because of self
 - (ADAppDelegate *)init {
     self = [super init];
-    if (self) {
-        closingBecauseOfSelf = NO;
-    }
+    closingBecauseOfSelf = NO;
     return self;
 }
 
@@ -71,13 +66,13 @@
     closingBecauseOfSelf = YES;
     
     recorder = [[ADRecorder alloc] init];
+    
     [recorder setMicID:[micMenu indexOfSelectedItem]];
     [recorder setScreenID:[screenMenu indexOfSelectedItem]];
     
     @try {
         [recorder startRecording];
-    }
-    @catch (NSError *err) {
+    } @catch (NSError *err) {
         NSAlert *al = [NSAlert alertWithError:err];
         [al runModal];
         recorder = nil;

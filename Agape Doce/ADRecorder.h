@@ -1,7 +1,6 @@
 //
-//  ADRecorder.h - Agape Doce
-//  The ADRecorder manages the taking of pictures in a separate thread. It uses
-//  an ADMovieAssembler (and another thread) to process and assemble the images.
+//  ADRecorder.h
+//  Agape Doce
 // 
 //  Agape Doce is free software: you can redistribute it and/or modify
 //  it under the terms of the GNU General Public License as published by
