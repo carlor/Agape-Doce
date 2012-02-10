@@ -66,6 +66,9 @@ typedef enum {
 @end
 
 // --- private utilities ---
+id AD_boxDisplayID(CGDirectDisplayID disp);
+CGDirectDisplayID AD_deboxDisplayID(id box);
+
 NSURL *AD_tempFile(void);
 NSString *AD_nameOf(CGDirectDisplayID display);
 

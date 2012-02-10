@@ -62,7 +62,7 @@ static NSArray *screennames = nil;
         NSMutableArray *mscreennames = [[NSMutableArray alloc] init];
         
         CGDirectDisplayID dfault = CGMainDisplayID();
-        [mscreenarray addObject:[NSNumber numberWithUnsignedInt:dfault]];
+        [mscreenarray addObject:AD_boxDisplayID(dfault)];
         [mscreennames addObject:AD_nameOf(dfault)];
         
         // find number of displays
@@ -77,8 +77,8 @@ static NSArray *screennames = nil;
             
             for (uint32_t i=0; i<ndisplays; i++, displayp++) {
                 if (*displayp != dfault) {
-                    [mscreenarray 
-                     addObject:[NSNumber numberWithUnsignedInt:*displayp]
+                    [mscreenarray
+                        addObject:AD_boxDisplayID(*displayp)
                      ];
                     [mscreennames addObject:AD_nameOf(*displayp)];
                 }
@@ -103,10 +103,11 @@ static NSArray *screennames = nil;
     captureSession = [[AVCaptureSession alloc] init];
     
     screenInput = [[AVCaptureScreenInput alloc] 
-                   initWithDisplayID:[[screenarray 
+                   initWithDisplayID:AD_deboxDisplayID([screenarray 
                                        objectAtIndex:[self screenID]
-                                      ] unsignedIntValue]
+                                      ])
                    ];
+    
     [captureSession addInput:screenInput];
     
     if (micID) {
@@ -172,6 +173,15 @@ static NSArray *screennames = nil;
 @end
 
 // --- private utilities ---
+id AD_boxDisplayID(CGDirectDisplayID display) {
+    return [NSData dataWithBytes:&display length:sizeof(CGDirectDisplayID*)];
+}
+
+CGDirectDisplayID AD_deboxDisplayID(id box) {
+    return *(CGDirectDisplayID*)[box bytes];
+}
+
+
 NSURL *AD_tempFile() {
     return [NSURL 
             fileURLWithPath:[NSString 

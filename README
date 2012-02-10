@@ -1,6 +1,6 @@
 
   This is a Max OS X Lion application whose eventual goal is to be a fully-
-fledged screen-recording program. As of now, it only records video.
+fledged screen-recording program.
 
 Todo:
     (general)
@@ -12,7 +12,6 @@ Todo:
         different formats
         webcam integration
         allow it to replace file
-        make the screen id casting portable
         internationalization
         name of screen
     (far future)
