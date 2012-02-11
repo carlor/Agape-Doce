@@ -47,6 +47,13 @@
     [screenMenu addItemsWithTitles:[ADRecorder screennames]];
 }
 
+- (void)applicationDidBecomeActive:(NSNotification *)notification
+{
+    if ([recorder recordingState] == ADNotRecordingState) {
+        AD_show([self startWindow]);
+    }
+}
+
 // --- actions ---
 - (IBAction)recordButtonPressed:(id)sender {
     recorder = [[ADRecorder alloc] init];
