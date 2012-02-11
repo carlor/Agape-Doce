@@ -21,12 +21,9 @@
 #import "ADRecorder.h"
 
 
-@interface ADAppDelegate : NSObject <NSApplicationDelegate, 
-                                     NSWindowDelegate>
+@interface ADAppDelegate : NSObject <NSApplicationDelegate>
 {
-    NSApplication *app;
     ADRecorder *recorder;
-    BOOL closingBecauseOfSelf;
 }
 
 

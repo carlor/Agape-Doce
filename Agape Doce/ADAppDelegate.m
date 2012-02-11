@@ -34,7 +34,6 @@
 // it closes because of self
 - (ADAppDelegate *)init {
     self = [super init];
-    closingBecauseOfSelf = NO;
     return self;
 }
 
@@ -46,25 +45,10 @@
     
     [screenMenu removeAllItems];
     [screenMenu addItemsWithTitles:[ADRecorder screennames]];
-    
-    app = [aNotification object];
-    [[self startWindow] setDelegate:self];
-}
-
-
-// --- NSWindowDelegate implementation ---
-- (void)windowWillClose:(NSNotification *)notification
-{
-    // this way, when the window is hidden for recording, it doesn't quit
-    if (!closingBecauseOfSelf) {
-        [app terminate:self];
-    }
 }
 
 // --- actions ---
 - (IBAction)recordButtonPressed:(id)sender {
-    closingBecauseOfSelf = YES;
-    
     recorder = [[ADRecorder alloc] init];
     
     [recorder setMicID:[micMenu indexOfSelectedItem]];
@@ -82,8 +66,6 @@
         AD_hide([self startWindow]);
         AD_show([self controlWindow]);
     }
-    
-    closingBecauseOfSelf = NO;
 }
 
 - (IBAction)stopButtonPressed:(id)sender {
