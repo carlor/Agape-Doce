@@ -104,11 +104,8 @@
 		69D0F2F714A93BB700AC453D = {
 			isa = PBXGroup;
 			children = (
-				691B804614CD0CA5007B8B03 /* AVFoundation.framework */,
 				69D4654214CA48130001313C /* README */,
 				69D4654414CA49850001313C /* LICENSE */,
-				697859B814C7EA220037F756 /* OpenGL.framework */,
-				69CFC7B714B3EFBD00ED8FD4 /* QTKit.framework */,
 				69D0F30C14A93BB700AC453D /* Agape Doce */,
 				69D0F32914A93BB800AC453D /* Agape DoceTests */,
 				69D0F30514A93BB700AC453D /* Frameworks */,
@@ -128,6 +125,9 @@
 		69D0F30514A93BB700AC453D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				691B804614CD0CA5007B8B03 /* AVFoundation.framework */,
+				69CFC7B714B3EFBD00ED8FD4 /* QTKit.framework */,
+				697859B814C7EA220037F756 /* OpenGL.framework */,
 				69D0F30614A93BB700AC453D /* Cocoa.framework */,
 				69D0F32414A93BB700AC453D /* SenTestingKit.framework */,
 				69D0F30814A93BB700AC453D /* Other Frameworks */,

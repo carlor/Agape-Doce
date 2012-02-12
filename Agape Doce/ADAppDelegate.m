@@ -84,12 +84,15 @@
     NSSavePanel *sp = [NSSavePanel savePanel];
     [sp setAllowedFileTypes:[NSArray arrayWithObject:@"mov"]];
     
+    NSFileManager *fm = [NSFileManager defaultManager];
+    
     while (1) {
         NSUInteger result = [sp runModal];
         if (result == NSOKButton) {
             NSError *error = nil;
             
-            BOOL good = [[NSFileManager defaultManager] 
+            BOOL good = [fm removeItemAtURL:[sp URL] error:&error] ||
+                        [fm 
                          moveItemAtURL:[recorder outputURL]
                          toURL:[sp URL]
                          error:&error
